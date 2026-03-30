@@ -2,12 +2,12 @@ Backend API - Core Project
 API robusta desenvolvida em Node.js, estruturada em camadas para garantir escalabilidade, fácil manutenção e clara separação de responsabilidades.
 
 Tecnologias
-Runtime: Node.js
-Framework: Express
-ORM/DB: Sequelize + PostgreSQL
-Segurança: JWT (Autenticação) & Bcrypt (Hashing)
-Testes: Jest & Supertest
-Documentação: Swagger
+*Runtime: Node.js
+*Framework: Express
+*ORM/DB: Sequelize + PostgreSQL
+*Segurança: JWT (Autenticação) & Bcrypt (Hashing)
+*Testes: Jest & Supertest
+*Documentação: Swagger
 
 Arquitetura do Sistema
 O projeto utiliza o padrão MVC + Services, isolando a lógica de negócio dos controladores.
