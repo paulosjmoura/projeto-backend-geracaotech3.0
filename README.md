@@ -1,117 +1,59 @@
-Backend API - Project Root
-Descrição
-Este projeto é uma API backend desenvolvida em Node.js utilizando Express e Sequelize, com integração a banco de dados relacional (PostgreSQL). A aplicação segue uma arquitetura organizada em camadas (controllers, services, models, routes), com foco em escalabilidade, manutenção e separação de responsabilidades.
+Backend API - Core Project
+API robusta desenvolvida em Node.js, estruturada em camadas para garantir escalabilidade, fácil manutenção e clara separação de responsabilidades.
 
-A API fornece funcionalidades para gerenciamento de usuários, autenticação, categorias e produtos, incluindo suporte a opções e imagens de produtos.
+Tecnologias
+Runtime: Node.js
+Framework: Express
+ORM/DB: Sequelize + PostgreSQL
+Segurança: JWT (Autenticação) & Bcrypt (Hashing)
+Testes: Jest & Supertest
+Documentação: Swagger
 
-Tecnologias Utilizadas
-Node.js
-Express
-Sequelize ORM
-PostgreSQL
-JWT (JSON Web Token) para autenticação
-Bcrypt para hashing de senhas
-Swagger para documentação de API
-Jest e Supertest para testes
-Requisitos
-Node.js (versão 16 ou superior recomendada)
-PostgreSQL
-NPM ou Yarn
-Instalação
-Clone o repositório:
+Arquitetura do Sistema
+O projeto utiliza o padrão MVC + Services, isolando a lógica de negócio dos controladores.
+
+Plaintext
+src/
+├── config/       # Ajustes de Infra/DB
+├── controllers/  # Orquestração de Requisições
+├── services/     # Regras de Negócio (Core)
+├── models/       # Abstração de Dados (Sequelize)
+├── routes/       # Definição de Endpoints
+└── middleware/   # Filtros e Segurança
+
+Configuração e Instalação
+Clone e Instale:
+
+Bash
 git clone <url-do-repositorio>
 cd project-root
-Instale as dependências:
-
 npm install
-Configuração
-Configure as variáveis de ambiente:
 
-Crie ou edite o arquivo .env na raiz do projeto com as seguintes variáveis:
+Variáveis de Ambiente:
+Crie um arquivo .env na raiz com as credenciais do banco e a Secret do JWT:
+DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT, JWT_SECRET.
 
-DB_HOST=localhost DB_USER=seu_usuario DB_PASS=sua_senha DB_NAME=nome_do_banco DB_PORT=5432 JWT_SECRET=sua_chave_secreta
-
-Execute as migrações (caso utilize sequelize-cli):
-
+Banco de Dados:
+Bash
 npx sequelize-cli db:migrate
+
 Execução
-Ambiente de desenvolvimento
+Desenvolvimento: npm run dev
+Produção: npm start
+Testes: npm test
 
-npm run dev
-Ambiente de produção
+Acesse em: http://localhost:3000
 
-npm start
-A aplicação será iniciada em:
+Funcionalidades Principais
+Auth: Sistema de login com proteção via JWT.
+Gerenciamento: CRUD completo de Usuários, Categorias e Produtos.
+Produtos: Suporte para variações (opções) e upload de imagens.
+Docs: Swagger UI disponível em /api-docs.
 
-http://localhost:3000
-
-Documentação
-A documentação da API pode ser acessada em:
-
-http://localhost:3000/api-docs
-
-Estrutura do Projeto src/ ├── app.js # Configuração principal do Express ├── server.js # Inicialização do servidor ├── config/ │ └── database.js # Configuração do banco de dados ├── controllers/ # Controladores da aplicação ├── services/ # Regras de negócio ├── models/ # Modelos do Sequelize ├── database/ # Inicialização do ORM ├── routes/ # Definição das rotas ├── middleware/ # Middlewares (ex: autenticação)
-
-Funcionalidades
-Autenticação de usuários com JWT
-
-Cadastro e gerenciamento de usuários
-
-CRUD de categorias
-
-CRUD de produtos
-
-Suporte a imagens e opções de produtos
-
-Proteção de rotas com middleware de autenticação
-
-Exemplos de Uso da API
-Autenticação
-POST /login
-
-Exemplo de payload:
-
-{ "email": "usuario@email.com", "password": "senha" }
-
-Resposta:
-
-{ "token": "jwt_token_aqui" }
-
-Exemplo de rota protegida GET /products Authorization: Bearer
-
-Documentação da API
-A documentação Swagger pode ser acessada em:
-
-http://localhost:3000/api-docs
-
-Testes
-Para executar os testes:
-
-npm test
 Contribuição
-Fork o projeto
+Faça o Fork do projeto.
+Crie uma Branch (git checkout -b feature/nova-feature).
+Dê o Commit (git commit -m 'Adiciona nova feature').
+Envie o Push e abra um Pull Request.
 
-Crie uma branch para sua feature:
-
-git checkout -b minha-feature
-Commit suas alterações:
-
-git commit -m "Minha nova feature"
-Push para o repositório:
-
-git push origin minha-feature
-Abra um Pull Request
-
-Boas Práticas Adotadas
-Separação de responsabilidades (MVC + Services)
-
-Uso de middlewares para autenticação
-
-Organização modular do código
-
-Uso de variáveis de ambiente
-
-Estrutura escalável para crescimento da aplicação
-
-Licença
-Este projeto está sob a licença ISC.
+Licença: ISC
