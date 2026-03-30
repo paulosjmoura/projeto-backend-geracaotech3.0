@@ -3,10 +3,15 @@ API robusta desenvolvida em Node.js, estruturada em camadas para garantir escala
 
 Tecnologias
 *Runtime: Node.js
+
 *Framework: Express
+
 *ORM/DB: Sequelize + PostgreSQL
+
 *Segurança: JWT (Autenticação) & Bcrypt (Hashing)
+
 *Testes: Jest & Supertest
+
 *Documentação: Swagger
 
 Arquitetura do Sistema
